@@ -69,6 +69,7 @@ local and cloud-based alerting.
                  Excel / CSV
                     Analysis
 ```
+<img width="449" height="275" alt="image" src="https://github.com/user-attachments/assets/2b39accf-2606-4114-b5c0-e79101d5c8af" />
 
 ## Hardware Requirements
 
