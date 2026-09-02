@@ -32,43 +32,6 @@ local and cloud-based alerting.
 
 ## System Architecture
 
-``` text
-                 +-------------------+
-                 |      LM35         |
-                 | Temperature Sensor|
-                 +---------+---------+
-                           |
-                           v
-+----------+       +-------+--------+       +----------------+
-|   MQ-2   |------>|    LPC2148     |<----->|   AT24C256     |
-| Gas      |       |    ARM7 MCU    |       |    EEPROM      |
-| Sensor   |       +---+---+---+----+       +----------------+
-+----------+           |   |   |
-                       |   |   +----------------+
-                       |   |                    |
-                       |   v                    v
-                       |  LCD 20x4          4x4 Keypad
-                       |
-                       +------> RTC
-                       |
-                       +------> Alarm/Buzzer
-                       |
-                       v
-                  UART Interface
-                       |
-                       v
-                    ESP-01
-                       |
-                       v
-                 Wi-Fi Network
-                       |
-                       v
-                   ThingSpeak
-                       |
-                       v
-                 Excel / CSV
-                    Analysis
-```
 <img width="449" height="275" alt="image" src="https://github.com/user-attachments/assets/2b39accf-2606-4114-b5c0-e79101d5c8af" />
 
 ## Hardware Requirements
@@ -200,12 +163,7 @@ Used for:
 
 Example main screen:
 
-``` text
-DATE:17/08/17
-TIME:15:53:54
-T:20C G:169
-SW->MENU T:50 G:180
-```
+<img width="1280" height="720" alt="WhatsApp Image 2026-09-02 at 2 08 33 PM" src="https://github.com/user-attachments/assets/9c469a16-e127-4f1e-9da6-590e76c97180" />
 
 ### `kpm.c / kpm.h`
 
@@ -296,6 +254,8 @@ External interrupt driver used by the configuration switch.
 
 Pressing the switch generates an interrupt and requests the system to
 enter the configuration menu.
+<img width="1280" height="720" alt="WhatsApp Image 2026-09-02 at 2 08 33 PM (2)" src="https://github.com/user-attachments/assets/6616c554-bf5f-4e60-bd9d-af330a126c48" />
+
 
 ### `menu.c / menu.h`
 
@@ -303,12 +263,9 @@ Menu interface for local configuration.
 
 Typical options include:
 
-``` text
-1. Edit Time
-2. Edit Date
-3. Edit Temperature Setpoint
-4. Edit Gas Setpoint
-```
+
+<img width="1280" height="720" alt="WhatsApp Image 2026-09-02 at 2 08 33 PM (1)" src="https://github.com/user-attachments/assets/09e10bad-17f6-4b30-b314-43c4fd85e5d3" />
+
 
 Updated set points are written to EEPROM.
 
@@ -469,6 +426,8 @@ Use a serial terminal/Flash Magic test setup to verify AT-command
 responses.
 
 ### 12. Connect ESP-01 to LPC2148
+<img width="1280" height="963" alt="WhatsApp Image 2026-09-02 at 2 11 30 PM" src="https://github.com/user-attachments/assets/3cb30f2f-34d5-4458-b19f-c6aa0d5f7166" />
+
 
 Connect the ESP-01 through UART and verify the ESP-01 driver.
 
@@ -572,25 +531,6 @@ The project hardware output includes LCD screenshots showing:
 -   Gas set point
 -   Menu/switch indication
 
-Add the project photographs to the repository, for example:
-
-``` text
-docs/
-├── hardware.jpg
-├── lcd_output_1.jpg
-└── lcd_output_2.jpg
-```
-
-Then reference them in this README:
-
-``` markdown
-![Hardware Setup](docs/hardware.jpg)
-
-![LCD Output](docs/lcd_output_1.jpg)
-
-![LCD Output](docs/lcd_output_2.jpg)
-```
-
 ## Cloud Data
 
 ThingSpeak is used as the cloud platform for remote data monitoring.
@@ -659,6 +599,9 @@ Proteus
 ## Author
 
 **Cloud-Linked Data Logger with Excel Export & Smart Alerts**
+
+
+[excel_sheet.csv.csv](https://github.com/user-attachments/files/31733240/excel_sheet.csv.csv)
 
 Built as an ARM7/LPC2148 embedded IoT project integrating sensor
 monitoring, non-volatile configuration storage, Wi-Fi connectivity,
